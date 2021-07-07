@@ -25,6 +25,8 @@ const TextoImagen = styled.div`
       }
    }
    p{
+      margin-left: 20rem;
+      margin-right: 20rem;
       font-size: 2rem;
       @media(min-width: 992px){
          font-size: 2.7rem;
@@ -46,8 +48,9 @@ const ImagenObio = () => {
    return ( 
       <ImageBackground tag="section" fluid={image.sharp.fluid} fadeIn="soft">
          <TextoImagen>
-            <h1>Bienvenido a ObiOnline</h1>
-            <p>La plataforma que conecta al productor con su consumidor preferido, obio tu!</p>
+            <h1>Bienvenido a OBIOnline</h1>
+            <p>Diversas cooperativas y empresas comunitarias de variadas regiones de seis entidades de México, acercan sus productos de calidad de exportación, con certificación orgánicas y de comercio justo.</p>
+            
          </TextoImagen>
       </ImageBackground>
     );

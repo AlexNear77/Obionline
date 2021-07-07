@@ -1,7 +1,8 @@
 import React from 'react';
 import BackgroundImage from 'gatsby-background-image';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
-import useInicio from "../hooks/useInicio";
+//import useInicio from "../hooks/useInicio";
 
 const ImageBackground = styled(BackgroundImage)`
    height: 600px;
@@ -31,18 +32,50 @@ const TextoImagen = styled.div`
          font-size: 2.7rem;
       }
    }
+
+   .flex-container{
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+   }
+   .flex-container div{
+      margin: 1rem;
+      color: white;
+      width: 70rem;
+
+   }
+
+   @media(max-width: 600px){
+      .flex-container{
+      flex-direction: column;
+      }
+      .flex-containter div{
+         flex-basis:100%;
+      }
+   }
 `
 const ImagenEmpatia = () => {
-   const inicio = useInicio();
-   const { nombre, contenido, imagen}  =  inicio[0];
-   console.log(imagen);
+   const {image} = useStaticQuery(graphql`
+   query{
+      image: file(relativePath:{ eq:"imagen_inicio3.jpg"}){
+        sharp:childImageSharp {
+           fluid{
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+     }
+   `)
+
    return ( 
-      <ImageBackground tag="section" fluid={imagen.localFile.sharp.fluid} fadeIn="soft">
+      <ImageBackground tag="section" fluid={image.sharp.fluid} fadeIn="soft">
          <TextoImagen>
-            <h1>{nombre}</h1>
-            <div>
+            <h1>Productos sustentables</h1>
+            <div className="flex-container">
                <div>
-                  <p>{contenido}</p>
+                  <p>
+                  Elaborados por pequeños productores y productoras pertenecientes a cooperativas y organizaciones campesinas e indígenas que trabajan bajo esquemas basados en el respeto y cuidado de la biodiversidad, el comercio justo y el uso de prácticas agroecológicas.
+                     </p>
                </div>
                <div>
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/tw0ZioammDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

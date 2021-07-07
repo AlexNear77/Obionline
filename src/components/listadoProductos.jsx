@@ -5,6 +5,8 @@ import ProductoPreview from './productoPreview';
 import * as listadoProductosCSS from '../css/listadoProductos.module.css';
 import useFiltro from '../hooks/useFiltro';
 
+
+
 const ListadoProductos = () => {
 
    const  resultado = useProductos();
@@ -25,12 +27,29 @@ const ListadoProductos = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
    },[categoria])
  
+   
    return ( 
       <>
          <h2 css={css`
             margin-top: 5rem;
-         `}>Productos y artesanias</h2>
+         `}>Miembresias Anuales y Mensuales</h2>
+         
+         <img css={css`
+            margin:auto;
+            margin-top: 2.5rem;
+		    display:block;
+         `} src="/static/878a8e32ba3e3372b7cc3d7621368dc7/Premium.png" alt="miembresia" />
+         <img css={css`
+            margin:auto;
+            margin-top: 2.5rem;
+		    display:block;
+         `} src="/static/4bf98d522b0435674bc8b4de1c6971bf/Basico.png" alt="miembresia" />
 
+
+
+<h2 css={css`
+            margin-top: 5rem;
+         `}>Productos y Artesanias</h2>
          {FiltroUI()}
 
          <ul className={listadoProductosCSS.productos}>
