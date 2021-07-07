@@ -4,21 +4,20 @@ import styled from '@emotion/styled';
 
 const Nav = styled.nav`
    display: flex;
-   justify-content: center;
-   padding-bottom: 3rem;
+   flex-direction: column;
+   padding-bottom: .5rem;
 
    @media( min-width: 768px){
-      padding-bottom: 0;
+      padding: 0;
+      flex-direction: row;
    }
 `
 const NavLink = styled(Link)`
    color: #FFFFFF;
-   font-size: 1.6rem;
    font-weight: 700;
-   line-height: 1rem;
    font-family: 'PT Sans', sans-serif;
    text-decoration: none;
-   padding: 1rem;
+   padding: .5rem;
    margin-right: 1rem;
 
    //Esto es para quitar un espacio que genera el ultimo nav que se 
@@ -40,8 +39,20 @@ const Navegacion = () => {
             Inicio
          </NavLink>
          <NavLink 
-            to={'/nosotros'}                                     activeClassName="pagina-actual">
+            activeClassName="pagina-actual">
             Nosotros
+         </NavLink>
+         <NavLink
+            activeClassName="pagina-actual">
+            Productores
+         </NavLink>
+         <NavLink
+            activeClassName="pagina-actual">
+            Contacto
+         </NavLink>
+         <NavLink 
+            to={'/productos'}                                     activeClassName="pagina-actual">
+            Tienda
          </NavLink>
       </Nav>
       );

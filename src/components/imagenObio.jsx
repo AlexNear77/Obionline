@@ -4,7 +4,7 @@ import BackgroundImage from 'gatsby-background-image';
 import styled from '@emotion/styled';
 
 const ImageBackground = styled(BackgroundImage)`
-   height: 550px;
+   height: 700px;
 `
 const TextoImagen = styled.div`
    background-image: linear-gradient(to top, rgba(34,49,63,.75),rgba(34,49,63,.75));
@@ -34,7 +34,7 @@ const TextoImagen = styled.div`
 const ImagenObio = () => {
    const {image} = useStaticQuery(graphql`
    query{
-      image: file(relativePath:{ eq:"imagen_inicio.jpg"}){
+      image: file(relativePath:{ eq:"imagen_inicio2.jpg"}){
         sharp:childImageSharp {
            fluid{
               ...GatsbyImageSharpFluid_withWebp
@@ -46,7 +46,7 @@ const ImagenObio = () => {
    return ( 
       <ImageBackground tag="section" fluid={image.sharp.fluid} fadeIn="soft">
          <TextoImagen>
-            <h1>Bienvenido a OBIOnline</h1>
+            <h1>Bienvenido a ObiOnline</h1>
             <p>La plataforma que conecta al productor con su consumidor preferido, obio tu!</p>
          </TextoImagen>
       </ImageBackground>
